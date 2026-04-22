@@ -1,0 +1,6 @@
+Estructura
+
+model/ --> Define nuestras estructuras de datos
+store/ --> Maneja la base de datos (Repository Pattern)
+service/ --> Contiene la lógica de negocio
+transport/ --> Maneja HTTP requests/responses
