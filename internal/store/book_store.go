@@ -57,7 +57,7 @@ func (s *store) GetByID(id int) (*model.Book, error) {
 }
 
 func (s *store) Create(book *model.Book) (*model.Book, error) {
-	q := `INSERT INTO TABLE books (title, author) VALUES (?, ?)`
+	q := `INSERT INTO books (title, author) VALUES (?, ?)`
 
 	resp, err := s.db.Exec(q, book.Title, book.Author)
 	if err != nil {
@@ -90,7 +90,7 @@ func (s *store) Update(id int, book *model.Book) (*model.Book, error) {
 func (s *store) Delete(id int) error {
 	q := `DELETE FROM books WHERE id = ?`
 
-	_, err := s.db.Exec(q)
+	_, err := s.db.Exec(q, id)
 	if err != nil {
 		return err
 	}
