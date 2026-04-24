@@ -32,7 +32,7 @@ func (s *Service) GetBookByID(id int) (*model.Book, error) {
 
 func (s *Service) CreateBook(book model.Book) (*model.Book, error) {
 	if book.Title == "" {
-		return nil, errors.New("Title must be provided")
+		return nil, errors.New("title must be provided")
 	}
 
 	return s.store.Create(&book)
@@ -40,7 +40,7 @@ func (s *Service) CreateBook(book model.Book) (*model.Book, error) {
 
 func (s *Service) UpdateBook(id int, book model.Book) (*model.Book, error) {
 	if book.Title == "" {
-		return nil, errors.New("Title must be provided")
+		return nil, errors.New("title must be provided")
 	}
 
 	return s.store.Update(id, &book)
