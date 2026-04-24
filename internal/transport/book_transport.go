@@ -59,6 +59,7 @@ func (h *BookHandler) HandleBookByID(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		http.Error(w, "Missing ID", http.StatusBadRequest)
+		return
 	}
 
 	switch r.Method {
@@ -82,6 +83,7 @@ func (h *BookHandler) HandleBookByID(w http.ResponseWriter, r *http.Request) {
 		updated, err := h.service.UpdateBook(id, book)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
 		}
 
 		w.Header().Set("Content-Type", "application/json")
@@ -90,6 +92,7 @@ func (h *BookHandler) HandleBookByID(w http.ResponseWriter, r *http.Request) {
 	case http.MethodDelete:
 		if err := h.service.DeleteBook(id); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
 		}
 
 		w.WriteHeader(http.StatusNoContent)
