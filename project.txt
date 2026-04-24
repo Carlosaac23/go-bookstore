@@ -1,5 +1,17 @@
 Estructura
 
+go-boosktore/
+--- main.go
+--- internal/
+    --- model/
+        book.go
+    --- service/
+        book_service.go
+    -- store/
+        book_store.go
+    -- transport/
+        book_transport.go
+
 model/ --> Define nuestras estructuras de datos
 store/ --> Maneja la base de datos (Repository Pattern)
 service/ --> Contiene la lógica de negocio
